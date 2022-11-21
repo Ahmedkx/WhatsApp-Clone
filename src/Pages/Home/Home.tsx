@@ -1,10 +1,11 @@
-import React from 'react'
-import Background from '../../Components/Background/Background'
+import DesktopView from "../../Components/DesktopView/DesktopView";
+import { Box } from "@mui/material";
 
 export default function Home() {
     return (
-        <>
-            Hello
-        </>
+        <Box>
+            <DesktopView />
+            {/* <MobileView /> */}
+        </Box>
     )
 }

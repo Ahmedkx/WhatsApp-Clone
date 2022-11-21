@@ -1,7 +1,7 @@
 import { Box } from "@mui/system"
 import { Outlet } from "react-router-dom"
 
-const styles:any = {
+const classes = {
     top: {
         position: "fixed",
         backgroundColor: "rgb(0,168,132)",
@@ -11,28 +11,25 @@ const styles:any = {
         height: "127px",
         display:{
             md:"block",
-            sm: "none"
+            sm: "none",
+            xs: "none"
         }
     },
     bottom: {
         position: "fixed",
         backgroundColor: "rgb(240,242,245)",
-        top: "127px",
-        zIndex: "-1",
+        top: "0",
+        zIndex: "-2",
         width: "100%",
         height: "100%",
-        display:{
-            md:"block",
-            sm: "none"
-        }
     }
 }
 
 export default function Background() {
     return (
         <>
-            <Box sx={styles.top}></Box>
-            <Box sx={styles.bottom}></Box>
+            <Box sx={classes.top}></Box>
+            <Box sx={classes.bottom}></Box>
             <Outlet />
         </>
     )
