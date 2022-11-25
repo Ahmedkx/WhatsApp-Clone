@@ -15,7 +15,7 @@ export default function Topbar() {
         <Stack sx={classes.stack} flexDirection="row" justifyContent="space-between" alignItems="center" 
             // bgcolor="rgb(240,242,245)"
             >
-                    <AvatarIcon />
+                    <AvatarIcon width="40px" height="40px" />
             <Stack flexDirection="row" gap="10px">
                 <IconButton sx={{padding:"8px"}}>
                     <NewChatIcon />
