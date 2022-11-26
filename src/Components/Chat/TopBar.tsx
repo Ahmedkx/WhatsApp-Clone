@@ -9,13 +9,19 @@ const classes = {
     }
 }
 
-export default function TopBar({setOpen}:any) {
+
+export default function TopBar({setOpen, setData}:any) {
+    
+    function onClick(){
+        setOpen("open")
+        setData({name:"Zilan",status:"Online"})
+    }
     return (
         <Stack flexDirection="row" alignItems="center" gap="10px" padding="10px 16px"
             sx={classes.stack}
             // bgcolor="#F0F2F5" 
             height="60px"
-            onClick={()=>setOpen("open")}
+            onClick={onClick}
             >
             <Avatar sx={{width:"40px", height:"40px"}}/>
             <Box>

@@ -34,6 +34,7 @@ export default function DesktopView() {
         <Stack sx={classes.box}>
             <Sidebar />
             <Chat />
+            {/* <MainChat /> */}
         </Stack>
     )
 }

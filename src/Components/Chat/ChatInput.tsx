@@ -31,7 +31,7 @@ export default function ChatInput() {
     const [message, setMessage] = useState("")
 
     return (
-        <Stack bgcolor="#F0F2F5" padding="20px 20px" flexDirection="row" gap="16px">
+        <Stack bgcolor="rgba(241, 244, 247, 0.6)" padding="20px 20px" flexDirection="row" gap="16px">
             <TextField
             sx={classes.search}
             InputProps={{
