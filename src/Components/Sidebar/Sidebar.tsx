@@ -12,27 +12,12 @@ const classes = {
     }
 }
 
-const messages:object[] = [
-    {
-    name: "Zilan",
-    message: "Hello",
-    time: "12:35 PM"},
-    {
-    name: "Mohamed",
-    message: "Hello",
-    time: "12:35 PM"},
-    {
-    name: "Besose",
-    message: "Hello",
-    time: "12:35 PM"},
-]
-
 export default function Sidebar() {
     return (
         <Box sx={classes.main}>
             <Topbar />
             <Search />
-            <Message messages={messages}/>
+            <Message />
         </Box>
     )
 }

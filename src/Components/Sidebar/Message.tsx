@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import { Avatar, Stack, Typography } from "@mui/material"
 import ToggleButton from "@mui/material/ToggleButton/ToggleButton"
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup"
+import { ChangeSelectedUserContext } from "../../Context/SelectedUserContext"
+import { users } from "../../Context/SelectedUserContext"
 
 const classes = {
     togglebutton: {
@@ -23,25 +25,27 @@ const classes = {
     }
 }
 
-export default function Message({ messages }:any) {
-    const [chat, setChat] = React.useState("Zilan");
+export default function Message() {
+    const setUser = ChangeSelectedUserContext();
+    const [buttonGroupValue, setButtonGroupValue] = useState("");
 
-    const handleChange = (event:any ,selectedChat: any) => {
-        if (selectedChat !== null) {
-        setChat(selectedChat);
-        }
-    };
+    const handleChange = (event:any ,newButtonGroupValue: any) => {
+        if (newButtonGroupValue !== null) {
+            console.log("Clicked")
+            setButtonGroupValue(newButtonGroupValue);
+            setUser(newButtonGroupValue)
+    }};
 
     return (
         <ToggleButtonGroup
-        value={chat}
-        orientation="vertical"
-        exclusive
-        fullWidth
-        onChange={handleChange}
+            value={buttonGroupValue}
+            orientation="vertical"
+            exclusive
+            fullWidth
+            onChange={handleChange}
         >
-            {messages.map((e:any)=>
-            <ToggleButton key={e.name} disableRipple value={e.name} sx={classes.togglebutton}>
+            {users.map((e:any)=>
+            <ToggleButton key={e.name} disableRipple value={e.uid} sx={classes.togglebutton}>
                 <Stack flexDirection="row" alignItems="center" width="100%">
                     <Stack justifyContent="center" height="73px" padding="0 15px">
                         <Avatar sx={{width:"49px", height:"49px"}}/>

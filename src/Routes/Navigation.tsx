@@ -10,9 +10,9 @@ export default function Navigation() {
     return (
         <RouterRoutes>
             <Route element={<Background />}>
+                <Route path={Routes.login} element={<Login />} />
                 <Route path={Routes.home} element={<Home />} />
             </Route>
-            <Route path={Routes.login} element={<Login />} />
         </RouterRoutes>
     )
 }

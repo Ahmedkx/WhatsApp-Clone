@@ -1,5 +1,5 @@
-
-import Box from '@mui/material/Box';
+import { SelectedUserContext } from '../../Context/SelectedUserContext';
+import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '../../Images/CloseIcon';
 import Typography from '@mui/material/Typography';
@@ -16,11 +16,17 @@ const classes = {
     closeButton: {
         marginTop: "29.5px",
         marginLeft: "23.55px",
+    },
+    settings: {
+        fontSize: "14px",
+        fontWeight: "700",
+        color: "#CC3169",
+        ml: "8px",
     }
 }
 
-export default function ChatDrawer({open, setOpen, data}:any) {
-    // const [open, setOpen] = useState(true)
+export default function ChatDrawer({open, setOpen}:any) {
+    const user = SelectedUserContext();
     const drawerWidth = "300px"
 
     return (
@@ -43,8 +49,8 @@ export default function ChatDrawer({open, setOpen, data}:any) {
             <Stack marginTop="50px" alignItems="center" gap="14px">
                 <AvatarIcon width="130px" height="130px" />
                 <Stack gap="5px" alignItems="center">
-                    <Typography fontWeight="700" fontSize="22px">{data.name}</Typography>
-                    <Typography color="#B9BEC3" fontSize="12px">{data.status}</Typography>
+                    <Typography fontWeight="700" fontSize="22px">{user.name}</Typography>
+                    <Typography color="#B9BEC3" fontSize="12px">{user.status}</Typography>
                 </Stack>
             </Stack>
 
@@ -66,18 +72,25 @@ export default function ChatDrawer({open, setOpen, data}:any) {
                     <Typography fontSize="14px" fontWeight="700">Mute notifications</Typography>
                     <Switch />
                 </Stack>
+
                 <Stack marginTop="40px" gap="10px">
-                    <Stack flexDirection="row" gap="8px" sx={{cursor:"pointer"}}>
-                        <BlockIcon />
-                        <Typography fontSize="14px" fontWeight="700" color="#CC3169">Block Zilan</Typography>
+                    <Stack flexDirection="row">
+                        <Button>
+                            <BlockIcon />
+                            <Typography sx={classes.settings}>Block {user.name}</Typography>
+                        </Button>
                     </Stack>
-                    <Stack flexDirection="row" gap="8px" sx={{cursor:"pointer"}}>
-                        <ReportIcon />
-                        <Typography fontSize="14px" fontWeight="700" color="#CC3169">Report Zilan</Typography>
+                    <Stack flexDirection="row">
+                        <Button>
+                            <ReportIcon />
+                            <Typography sx={classes.settings}>Report {user.name}</Typography>
+                        </Button>
                     </Stack>
-                    <Stack flexDirection="row" gap="8px" sx={{cursor:"pointer"}}>
-                        <DeleteChatIcon />
-                        <Typography fontSize="14px" fontWeight="700" color="#CC3169">Delete chat</Typography>
+                    <Stack flexDirection="row">
+                        <Button>
+                            <DeleteChatIcon />
+                            <Typography sx={classes.settings}>Delete chat</Typography>
+                        </Button>
                     </Stack>
                 </Stack>
             </Stack>

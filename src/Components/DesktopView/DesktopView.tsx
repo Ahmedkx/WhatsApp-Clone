@@ -2,6 +2,7 @@ import Sidebar from '../Sidebar/Sidebar'
 import Chat from '../Chat/Chat'
 import Stack from '@mui/material/Stack'
 import MainChat from '../MainChat/MainChat'
+import { SelectedUserContext } from '../../Context/SelectedUserContext'
 
 
 const classes = {
@@ -30,11 +31,12 @@ const classes = {
 }
 
 export default function DesktopView() {
+    const user = SelectedUserContext();
+
     return (
         <Stack sx={classes.box}>
             <Sidebar />
-            <Chat />
-            {/* <MainChat /> */}
+            {user.uid == null ? <MainChat /> : <Chat />}
         </Stack>
     )
 }

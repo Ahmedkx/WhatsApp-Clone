@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Stack from "@mui/material/Stack";
 import ChatInput from "./ChatInput";
-import Conversation from "./Conversation";
+import Conversation from "../Conversation/Conversation";
 import TopBar from "./TopBar";
 import ChatDrawer from "./ChatDrawer";
 
