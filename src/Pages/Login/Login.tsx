@@ -71,7 +71,7 @@ export default function Login() {
                                 Back
                                 </button>
                             )}
-                            <Box sx={classes.submit} onClick={onSubmit}>{isLastStep ? "Finish" : "Next"}</Box>
+                            <Box sx={classes.submit} onClick={onSubmit}>{isLastStep ? "Finish" : "Next"}</Box>''
                         </form>
                     </Stack>
                 </Stack>
