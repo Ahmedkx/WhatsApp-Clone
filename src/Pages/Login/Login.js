@@ -1,11 +1,13 @@
 import Box from "@mui/material/Box"
 import Stack from "@mui/material/Stack"
-import { motion, AnimatePresence } from "framer-motion"
-import { Button, Divider, Typography } from "@mui/material"
+import { AnimatePresence } from "framer-motion"
+import { Typography } from "@mui/material"
 import NumberInput from "../../Components/Login/NumberInput"
 import { useMultistepForm } from "../../Hooks/useMultiStepForm"
 import OTPInput from "../../Components/Login/OTPInput"
 import { FormEvent, useState } from "react"
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { authentication } from "../../firebase-config"
 
 const classes = {
     container: {
@@ -34,13 +36,34 @@ const classes = {
     }
 }
 
-export default function Login() {
-    const { steps, isLastStep, next, isFirstStep, back, currentStepIndex } = useMultistepForm([<NumberInput key={1}/>, <OTPInput key={2}/>])
+function generateRecaptcha() {
+    window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
+        'size': 'invisible',
+        'callback': (response) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
 
-    function onSubmit(e: FormEvent) {
+            }
+        }, authentication);
+}
+
+export default function Login() {
+    const [phoneNumber, setPhoneNumber] = useState("+201013799469")
+    
+    const { steps, isLastStep, next, isFirstStep, back, currentStepIndex } = useMultistepForm([<NumberInput onChange={setPhoneNumber}/>, <OTPInput />])
+
+    function sendOTP(e) {
         e.preventDefault()
-        if (!isLastStep) return next()
-        alert("Successful Account Creation")
+        console.log(phoneNumber)
+        // if (!isLastStep) return next()
+        generateRecaptcha();
+        let appVerifier = window.recaptchaVerifier;
+        signInWithPhoneNumber(authentication,phoneNumber,appVerifier)
+        .then(confirmationResult=>{
+            window.confirmationResult = confirmationResult
+            console.log(confirmationResult)
+        }).catch((error)=>{
+            console.log(error)
+        })
     }
 
     return (
@@ -52,16 +75,19 @@ export default function Login() {
                             Login
                         </Typography>
                     </Box>
-                    <form onSubmit={onSubmit}>
+                    <form 
+                        // onSubmit={onSubmit}
+                    >
                         <AnimatePresence>
                                 {steps[currentStepIndex]}
                         </AnimatePresence>
-                        <Box sx={classes.submit} onClick={onSubmit}>{isLastStep ? "Login" : "Send OTP"}</Box>
+                        <button sx={classes.submit} >{isLastStep ? "Login" : "Send OTP"}</button>
                         {!isFirstStep && (
                             <Box sx={classes.submit} onClick={back}>
                             Change Number
                             </Box>
                         )}
+                        <div id="sign-in-button"></div>
                     </form>
                 </Stack>
             </Stack>

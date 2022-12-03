@@ -10,7 +10,7 @@ const classes = {
     }
 }
 
-export default function NumberInput() {
+export default function NumberInput({onChange}:any) {
     return (
             <motion.div
                 key="NumberInput"
@@ -23,7 +23,7 @@ export default function NumberInput() {
                 <PhoneInput
                     country='eg'
                     // value={"010"}
-                    onChange={phone => console.log(phone)}
+                    onChange={phone => onChange(phone)}
                     // autoFormat={false}
                     countryCodeEditable={false}
                     enableSearch={true}
