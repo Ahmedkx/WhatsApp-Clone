@@ -47,13 +47,12 @@ function generateRecaptcha() {
 }
 
 export default function Login() {
-    const [phoneNumber, setPhoneNumber] = useState("+201013799469")
-    
-    const { steps, isLastStep, next, isFirstStep, back, currentStepIndex } = useMultistepForm([<NumberInput onChange={setPhoneNumber}/>, <OTPInput />])
+    const [phoneNumber, setPhoneNumber] = useState("")
+    const [code, setCode] = useState("")
+    const { steps, isLastStep, next, isFirstStep, back, currentStepIndex } = useMultistepForm([<NumberInput onChange={setPhoneNumber}/>, <OTPInput setCode={setCode}/>])
 
     function sendOTP(e) {
-        e.preventDefault()
-        console.log(phoneNumber)
+        next()
         // if (!isLastStep) return next()
         generateRecaptcha();
         let appVerifier = window.recaptchaVerifier;
@@ -66,6 +65,18 @@ export default function Login() {
         })
     }
 
+    function checkOTP() {
+        let confirmationResult = window.confirmationResult
+        confirmationResult.confirm(code).then((result) => {
+            // User signed in successfully.
+            const user = result.user;
+            console.log(user)
+            }).catch((error) => {
+                // User couldn't sign in (bad verification code?)
+                console.log(error)
+            });
+    }
+
     return (
         <Box sx={classes.container}>
             <Stack sx={classes.modal}>
@@ -75,13 +86,11 @@ export default function Login() {
                             Login
                         </Typography>
                     </Box>
-                    <form 
-                        // onSubmit={onSubmit}
-                    >
+                    <form>
                         <AnimatePresence>
                                 {steps[currentStepIndex]}
                         </AnimatePresence>
-                        <button sx={classes.submit} >{isLastStep ? "Login" : "Send OTP"}</button>
+                        <Box sx={classes.submit} onClick={isLastStep ? checkOTP : sendOTP}>{isLastStep ? "Login" : "Send OTP"}</Box>
                         {!isFirstStep && (
                             <Box sx={classes.submit} onClick={back}>
                             Change Number

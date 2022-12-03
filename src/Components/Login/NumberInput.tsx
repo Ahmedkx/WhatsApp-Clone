@@ -22,11 +22,10 @@ export default function NumberInput({onChange}:any) {
                 <Box key={1} sx={classes.box}>
                 <PhoneInput
                     country='eg'
-                    // value={"010"}
-                    onChange={phone => onChange(phone)}
-                    // autoFormat={false}
-                    countryCodeEditable={false}
+                    onChange={phone => onChange(`+${phone}`)}
+                    autoFormat={false}
                     enableSearch={true}
+                    disableDropdown={true}
                     inputProps={{
                         name: 'phone',
                         required: true,
