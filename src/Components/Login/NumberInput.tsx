@@ -1,30 +1,40 @@
 import Box from "@mui/material/Box"
+import { motion } from "framer-motion"
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 
 const classes = {
     box: {
-        mt: 1,
-        p: "20px 30px",
+        mt: 3,
+        position: "sticky"
     }
 }
 
 export default function NumberInput() {
     return (
-        <Box sx={classes.box}>
-        <PhoneInput
-            country='eg'
-            // value={"010"}
-            onChange={phone => console.log(phone)}
-            // autoFormat={false}
-            countryCodeEditable={false}
-            enableSearch={true}
-            inputProps={{
-                name: 'phone',
-                required: true,
-                autoFocus: true,
-            }}
-        />
-    </Box>
+            <motion.div
+                key="NumberInput"
+                initial={{x:-500}}
+                animate={{x:0}}
+                exit={{x: -500}}
+                transition={{ duration: 0.3 }}
+            >
+                <Box key={1} sx={classes.box}>
+                <PhoneInput
+                    country='eg'
+                    // value={"010"}
+                    onChange={phone => console.log(phone)}
+                    // autoFormat={false}
+                    countryCodeEditable={false}
+                    enableSearch={true}
+                    inputProps={{
+                        name: 'phone',
+                        required: true,
+                        autoFocus: true,
+                        autoComplete: "off"
+                    }}
+                />
+                </Box>
+            </motion.div>
     )
 }

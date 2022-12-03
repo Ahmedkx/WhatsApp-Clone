@@ -5,38 +5,37 @@ import { Button, Divider, Typography } from "@mui/material"
 import NumberInput from "../../Components/Login/NumberInput"
 import { useMultistepForm } from "../../Hooks/useMultiStepForm"
 import OTPInput from "../../Components/Login/OTPInput"
-import { FormEvent } from "react"
+import { FormEvent, useState } from "react"
 
 const classes = {
     container: {
         display: "flex",
         justifyContent: 'center',
         alignItems: 'center',
+        height: "100vh",
+        width: "100vw"
     },
     modal: {
         backgroundColor: "white",
         borderRadius: "20px",
-        overflow: "hidden"
-    },
-    box: {
-        mt: 1,
-        p: "20px 30px",
+        overflowX: "hidden",
+            p: "20px 30px",
     },
     submit: {
         color: "white",
         bgcolor: "#61C554",
         p: 2,
-        m: "20px 30px",
-        mt: 0,
+        mt: 2,
         textAlign: "center",
         fontWeight: 700,
         borderRadius: "10px",
         cursor: 'pointer',
+        userSelect: "none"
     }
 }
 
 export default function Login() {
-    const { step, isLastStep, next, isFirstStep, back } = useMultistepForm([<NumberInput />, <OTPInput />])
+    const { steps, isLastStep, next, isFirstStep, back, currentStepIndex } = useMultistepForm([<NumberInput key={1}/>, <OTPInput key={2}/>])
 
     function onSubmit(e: FormEvent) {
         e.preventDefault()
@@ -45,37 +44,27 @@ export default function Login() {
     }
 
     return (
-        <motion.div
-            initial={{ opacity: 0,y:-1000 }}
-            animate={{ opacity: 1,y:"35vh" }}
-        >
-            <Box sx={classes.container}>
-                <Stack sx={classes.modal}>
-                    <Stack>
-                        <Box sx={classes.box}>
-                            <Typography fontSize={32} fontWeight={700}>
-                                Login
-                            </Typography>
-                        </Box>
-                        <Divider />
-                        <form onSubmit={onSubmit}>
-                            <AnimatePresence>
-                                <motion.div
-                                    exit={{x: -500}}
-                                >
-                                    {step}
-                                </motion.div>
-                            </AnimatePresence>
-                            {!isFirstStep && (
-                                <button type="button" onClick={back}>
-                                Back
-                                </button>
-                            )}
-                            <Box sx={classes.submit} onClick={onSubmit}>{isLastStep ? "Finish" : "Next"}</Box>''
-                        </form>
-                    </Stack>
+        <Box sx={classes.container}>
+            <Stack sx={classes.modal}>
+                <Stack>
+                    <Box>
+                        <Typography fontSize={32} fontWeight={700}>
+                            Login
+                        </Typography>
+                    </Box>
+                    <form onSubmit={onSubmit}>
+                        <AnimatePresence>
+                                {steps[currentStepIndex]}
+                        </AnimatePresence>
+                        <Box sx={classes.submit} onClick={onSubmit}>{isLastStep ? "Login" : "Send OTP"}</Box>
+                        {!isFirstStep && (
+                            <Box sx={classes.submit} onClick={back}>
+                            Change Number
+                            </Box>
+                        )}
+                    </form>
                 </Stack>
-            </Box>
-        </motion.div>
+            </Stack>
+        </Box>
     )
 }
