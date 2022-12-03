@@ -8,6 +8,7 @@ import OTPInput from "../../Components/Login/OTPInput"
 import { FormEvent, useState } from "react"
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { authentication } from "../../firebase-config"
+import { useNavigate } from "react-router-dom"
 
 const classes = {
     container: {
@@ -47,6 +48,7 @@ function generateRecaptcha() {
 }
 
 export default function Login() {
+    const navigate = useNavigate();
     const [phoneNumber, setPhoneNumber] = useState("")
     const [code, setCode] = useState("")
     const { steps, isLastStep, next, isFirstStep, back, currentStepIndex } = useMultistepForm([<NumberInput onChange={setPhoneNumber}/>, <OTPInput setCode={setCode}/>])
@@ -71,6 +73,7 @@ export default function Login() {
             // User signed in successfully.
             const user = result.user;
             console.log(user)
+            navigate("/")
             }).catch((error) => {
                 // User couldn't sign in (bad verification code?)
                 console.log(error)
