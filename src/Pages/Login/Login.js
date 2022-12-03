@@ -83,7 +83,7 @@ export default function Login() {
                 <Stack>
                     <Box>
                         <Typography fontSize={32} fontWeight={700}>
-                            Loginn
+                            Login
                         </Typography>
                     </Box>
                     <form>
