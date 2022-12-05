@@ -4,7 +4,6 @@ import Stack from '@mui/material/Stack'
 import MainChat from '../MainChat/MainChat'
 import { SelectedUserContext } from '../../Context/SelectedUserContext'
 
-
 const classes = {
     box:{
         height: {

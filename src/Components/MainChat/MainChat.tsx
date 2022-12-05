@@ -3,6 +3,7 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import LockIcon from '../../Images/LockIcon'
 import MainChatLogo from '../../Images/MainChatLogo'
+import axios from 'axios'
 
 const classes = {
     introTitle: {
@@ -18,6 +19,34 @@ const classes = {
 }
 
 export default function MainChat() {
+    const api = "https://lit-waters-98815.herokuapp.com/users"
+
+    axios.post(api, {
+        "name": "Mohamed",
+        "email": "222212@gmail.com",
+        "password": "mohamed"
+    })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+    // fetch(api, {
+    //     method: "POST",
+    //     headers: {'Content-Type': 'application/json'}, 
+    //     body: JSON.stringify({
+    //             "name": "Mohamed",
+    //             "email": "12@gmail.com",
+    //             "password": "mohamed"
+    //         })
+    //     }).then(res => {
+    //         console.log("Request complete! response:", res);
+    //     }).catch(err=>{
+    //         console.log(err)
+    //     })
+
     return (
         <Stack justifyContent="center" flex={1} bgcolor="rgb(240,242,245)" borderBottom="6px solid #25D366" padding="30px">
             <Stack textAlign="center" justifyContent="center" alignItems="center" flex={1}>
