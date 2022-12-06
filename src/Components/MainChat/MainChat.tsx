@@ -23,29 +23,15 @@ export default function MainChat() {
 
     axios.post(api, {
         "name": "Mohamed",
-        "email": "222212@gmail.com",
+        "email": "alksdlkajsldas22@gmail.com",
         "password": "mohamed"
     })
         .then(function (response) {
-            console.log(response);
+            console.log(response.data);
         })
         .catch(function (error) {
             console.log(error);
         });
-
-    // fetch(api, {
-    //     method: "POST",
-    //     headers: {'Content-Type': 'application/json'}, 
-    //     body: JSON.stringify({
-    //             "name": "Mohamed",
-    //             "email": "12@gmail.com",
-    //             "password": "mohamed"
-    //         })
-    //     }).then(res => {
-    //         console.log("Request complete! response:", res);
-    //     }).catch(err=>{
-    //         console.log(err)
-    //     })
 
     return (
         <Stack justifyContent="center" flex={1} bgcolor="rgb(240,242,245)" borderBottom="6px solid #25D366" padding="30px">
