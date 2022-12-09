@@ -19,19 +19,19 @@ const classes = {
 }
 
 export default function MainChat() {
-    const api = "https://lit-waters-98815.herokuapp.com/users"
+    // const api = "https://lit-waters-98815.herokuapp.com/users"
 
-    axios.post(api, {
-        "name": "Mohamed",
-        "email": "alksdlkajsldas22@gmail.com",
-        "password": "mohamed"
-    })
-        .then(function (response) {
-            console.log(response.data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+    // axios.post(api, {
+    //     "name": "Mohamed",
+    //     "email": "alksdlkajsldas22@gmail.com",
+    //     "password": "mohamed"
+    // })
+    //     .then(function (response) {
+    //         console.log(response.data);
+    //     })
+    //     .catch(function (error) {
+    //         console.log(error);
+    //     });
 
     return (
         <Stack justifyContent="center" flex={1} bgcolor="rgb(240,242,245)" borderBottom="6px solid #25D366" padding="30px">

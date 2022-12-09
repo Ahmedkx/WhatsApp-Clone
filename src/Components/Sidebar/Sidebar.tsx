@@ -2,9 +2,12 @@ import Box from "@mui/material/Box"
 import Topbar from "./Topbar"
 import Search from "./Search"
 import Message from "./Message"
+import SettingsSidebar from "../SettingsSidebar/SettingsSidebar"
+
 
 const classes = {
     main: {
+        position: "relative",
         height: "100%",
         width: "30%",
         minWidth: "200px",
@@ -12,12 +15,13 @@ const classes = {
     }
 }
 
-export default function Sidebar() {
+export default function MainSidebar() {
     return (
         <Box sx={classes.main}>
             <Topbar />
             <Search />
             <Message />
+            <SettingsSidebar />
         </Box>
     )
 }

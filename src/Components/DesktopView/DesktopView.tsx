@@ -1,11 +1,14 @@
 import Sidebar from '../Sidebar/Sidebar'
+import SettingsSidebar from '../SettingsSidebar/SettingsSidebar'
 import Chat from '../Chat/Chat'
 import Stack from '@mui/material/Stack'
 import MainChat from '../MainChat/MainChat'
 import { SelectedUserContext } from '../../Context/SelectedUserContext'
+import { Box } from '@mui/material'
 
 const classes = {
     box:{
+        display: "flex",
         height: {
             xs: "100vh",
             lg: "calc(100vh - 38px)"
