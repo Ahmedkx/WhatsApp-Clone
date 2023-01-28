@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box"
 import { motion } from "framer-motion"
 import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import 'react-phone-input-2/lib/bootstrap.css'
 
 const classes = {
     box: {

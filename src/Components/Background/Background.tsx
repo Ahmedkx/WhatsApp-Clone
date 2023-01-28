@@ -17,7 +17,8 @@ const classes = {
     },
     bottom: {
         position: "fixed",
-        backgroundColor: "rgb(240,242,245)",
+        // backgroundColor: "rgb(240,242,245)",
+        backgroundColor: "#DDDEDD",
         top: "0",
         zIndex: "-2",
         width: "100%",

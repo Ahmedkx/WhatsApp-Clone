@@ -1,9 +1,11 @@
 import { Box } from "@mui/material"
-import { motion, AnimatePresence  } from "framer-motion"
-import { SelectedSidebarContext } from "../../Context/SelectedSidebarContext"
-import Options from "./Options"
+import { motion, AnimatePresence } from "framer-motion"
+import Avatar from "./Avatar"
+import EditName from "./EditName"
 import Title from "./Title"
-import UserProfile from "./UserProfile"
+import Note from "./Note"
+import EditAbout from "./EditAbout"
+import { SelectedSidebarContext } from "../../Context/SelectedSidebarContext"
 
 const variants:any = {
     initial: {
@@ -27,16 +29,17 @@ const variants:any = {
 const classes = {
     main: {
         height: "100%",
-        backgroundColor: "white"
+        // backgroundColor: "#F0F2F5"
+        backgroundColor: "#F0F2F5"
     },
 }
 
-export default function SettingsSidebar() {
+export default function ProfileSidebar() {
     const { sidebarName } = SelectedSidebarContext()
 
     return (
         <AnimatePresence>
-            {sidebarName == "Settings" && <motion.div
+            {sidebarName == "UserProfile" && <motion.div
                 variants={variants}
                 initial="initial"
                 animate="animate"
@@ -44,8 +47,10 @@ export default function SettingsSidebar() {
             >
                 <Box sx={classes.main}>
                     <Title />
-                    <UserProfile />
-                    <Options />
+                    <Avatar />
+                    <EditName />
+                    <Note />
+                    <EditAbout />
                 </Box>
             </motion.div>}
         </AnimatePresence>

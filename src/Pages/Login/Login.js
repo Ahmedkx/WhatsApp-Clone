@@ -22,7 +22,8 @@ const classes = {
         backgroundColor: "white",
         borderRadius: "20px",
         overflowX: "hidden",
-            p: "20px 30px",
+        p: "20px 30px",
+        minWidth: "360px"
     },
     submit: {
         color: "white",
@@ -86,7 +87,7 @@ export default function Login() {
                 <Stack>
                     <Box>
                         <Typography fontSize={32} fontWeight={700}>
-                            Login
+                            OTP Login
                         </Typography>
                     </Box>
                     <form>

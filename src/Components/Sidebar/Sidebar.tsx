@@ -3,6 +3,7 @@ import Topbar from "./Topbar"
 import Search from "./Search"
 import Message from "./Message"
 import SettingsSidebar from "../SettingsSidebar/SettingsSidebar"
+import ProfileSidebar from "../ProfileSidebar/ProfileSidebar"
 
 
 const classes = {
@@ -22,6 +23,7 @@ export default function MainSidebar() {
             <Search />
             <Message />
             <SettingsSidebar />
+            <ProfileSidebar />
         </Box>
     )
 }

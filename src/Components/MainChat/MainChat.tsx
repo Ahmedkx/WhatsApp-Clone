@@ -3,7 +3,7 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import LockIcon from '../../Images/LockIcon'
 import MainChatLogo from '../../Images/MainChatLogo'
-import axios from 'axios'
+// import axios from 'axios'
 
 const classes = {
     introTitle: {
