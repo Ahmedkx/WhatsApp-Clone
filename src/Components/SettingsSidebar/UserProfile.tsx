@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
-import Button from '@mui/material/Button'
 import Stack from '@mui/material/Stack'
+import { motion } from "framer-motion"
 import { SelectedSidebarContext } from '../../Context/SelectedSidebarContext'
 
 const classes = {
@@ -42,7 +42,7 @@ export default function UserProfile() {
 
     return (
             <Stack sx={classes.container} onClick={()=>setSidebarName("UserProfile")}>
-                <img src='https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=2000' width={82} height={82} style={classes.image}/>
+                    <img src='https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=2000' width={82} height={82} style={classes.image}/>
                 <Stack sx={classes.textContainer}>
                     <Typography sx={classes.textName}>John Doe</Typography>
                     <Box >

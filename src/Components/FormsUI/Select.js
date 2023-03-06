@@ -2,7 +2,7 @@ import React from 'react';
 import { TextField, MenuItem } from '@mui/material';
 import { useField, useFormikContext } from 'formik';
 
-const FormikSelect = ({
+const SelectWrapper = ({
   name,
   options,
   ...otherProps
@@ -42,4 +42,4 @@ const FormikSelect = ({
   );
 };
 
-export default FormikSelect;
+export default SelectWrapper;

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Stack } from "@mui/material";
+import { motion } from "framer-motion"
 
 const classes = {
     container: {
@@ -26,10 +27,16 @@ export default function Avatar() {
 
     return (
         <Stack sx={classes.container}>
-            <label style={classes.label}>
-                <img src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=2000" alt="Avatar" width={200} height={200} style={classes.avatar}/>
-                <input hidden accept="image/*" type="file" onChange={onUpload}/>
-            </label>
+            <motion.div
+                initial={{scale: 0}}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.15, duration: 0.25 }}
+            >
+                <label style={classes.label}>
+                    <img src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=2000" alt="Avatar" width={200} height={200} style={classes.avatar}/>
+                    <input hidden accept="image/*" type="file" onChange={onUpload}/>
+                </label>
+            </motion.div>
         </Stack>
     )
 }

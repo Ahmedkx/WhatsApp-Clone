@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@mui/material';
 import { useFormikContext } from 'formik';
 
-const FormikButton = ({
+const ButtonWrapper = ({
   children,
   ...otherProps
 }) => {
@@ -29,4 +29,4 @@ const FormikButton = ({
   );
 };
 
-export default FormikButton;
+export default ButtonWrapper;

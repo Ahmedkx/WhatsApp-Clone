@@ -7,6 +7,7 @@ import FileIcon from '../../Images/FileIcon'
 import SendVoiceIcon from '../../Images/SendVoiceIcon'
 import SendIcon from '../../Images/SnedIcon'
 import IconButton from '@mui/material/IconButton'
+import Picker from '@emoji-mart/react'
 
 
 const classes = {
@@ -32,6 +33,7 @@ export default function ChatInput() {
 
     return (
         <Stack bgcolor="rgba(241, 244, 247, 0.6)" padding="20px 20px" flexDirection="row" gap="16px">
+            <Picker emojiVersion={1} set="native" onEmojiSelect={console.log} noCountryFlags={false}/>
             <TextField
             sx={classes.search}
             InputProps={{

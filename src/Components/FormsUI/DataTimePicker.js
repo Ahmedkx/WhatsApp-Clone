@@ -2,7 +2,7 @@ import React from 'react';
 import { TextField } from '@material-ui/core';
 import { useField } from 'formik';
 
-const FormikDataTimePicker = ({
+const DateTimePicker = ({
   name,
   ...otherProps
 }) => {
@@ -31,4 +31,4 @@ const FormikDataTimePicker = ({
   );
 };
 
-export default FormikDataTimePicker;
+export default DateTimePicker;

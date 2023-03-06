@@ -9,11 +9,11 @@ const classes = {
         zIndex: "-1",
         width: "100%",
         height: "127px",
-        display:{
-            md:"block",
-            sm: "none",
-            xs: "none"
-        }
+        // display:{
+        //     md:"block",
+        //     sm: "none",
+        //     xs: "none"
+        // }
     },
     bottom: {
         position: "fixed",
@@ -23,6 +23,11 @@ const classes = {
         zIndex: "-2",
         width: "100%",
         height: "100%",
+        display:{
+            md:"block",
+            sm: "none",
+            xs: "none"
+        }
     }
 }
 

@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core';
 import { useField, useFormikContext } from 'formik';
 
-const FormikCheckbox = ({
+const CheckboxWrapper = ({
   name,
   label,
   legend,
@@ -45,4 +45,4 @@ const FormikCheckbox = ({
   );
 };
 
-export default FormikCheckbox;
+export default CheckboxWrapper;
