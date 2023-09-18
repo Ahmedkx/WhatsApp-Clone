@@ -32,7 +32,7 @@ export default function ChatInput() {
     const [message, setMessage] = useState("")
 
     return (
-        <Stack bgcolor="rgba(241, 244, 247, 0.6)" padding="20px 20px" flexDirection="row" gap="16px">
+        <Stack bgcolor="rgba(241, 244, 247, 0.6)" padding="20px 20px" flexDirection="row" gap="16px" height="90px">
             <Picker emojiVersion={1} set="native" onEmojiSelect={console.log} noCountryFlags={false}/>
             <TextField
             sx={classes.search}
