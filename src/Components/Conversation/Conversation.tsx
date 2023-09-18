@@ -22,7 +22,7 @@ export default function Conversation() {
     return (
         <Stack sx={classes.stack}>
             <SentMessage message="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ab architecto aut, sapiente quaerat maxime animi consequuntur nemo ex quo blanditiis vitae nam, omnis dolore aliquid non, quia distinctio suscipit?"/>
-            <RecievedMessage message="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ab architecto aut, sapiente quaerat maxime animi consequuntur nemo ex quo blanditiis vitae nam, omnis dolore aliquid non, quia distinctio suscipit?"/>
+            <RecievedMessage message="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ab architecto aut, sapiente quaerat maxime animi consequuntur nemo ex quo blanditiis vitae nam, omnis dolore aliquid non, quia distinctio suscipit"/>
         </Stack>
     )
 }
